@@ -36,7 +36,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     ##If mower cal with PIN =0 is safe
     mower = Mower(channel_id, address, pin)
     ## Otherwise only send PIN when user input
-    if pin !0:
+    if pin != 0:
         mower = Mower(channel_id, address, pin)
     else:
         mower = Mower(channel_id, address)
