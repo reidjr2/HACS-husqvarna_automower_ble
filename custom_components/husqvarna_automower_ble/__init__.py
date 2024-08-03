@@ -40,7 +40,6 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
         mower = Mower(channel_id, address, pin)
     else:
         mower = Mower(channel_id, address)
-        pin = None
     await close_stale_connections_by_address(address)
 
     LOGGER.debug("connecting to %s with channel ID %s", address, str(channel_id), str(pin))
