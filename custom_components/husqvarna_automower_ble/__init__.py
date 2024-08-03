@@ -34,13 +34,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     LOGGER.info(STARTUP_MESSAGE)
 
     ##If mower cal with PIN =0 is safe
-    mower = Mower(channel_id, address, pin)
+    #mower = Mower(channel_id, address, pin)
     ## Otherwise only send PIN when user input
-    #if pin != 0:
-    #    mower = Mower(channel_id, address, pin)
-    #else:
-    #    mower = Mower(channel_id, address)
-    #   pin = None
+    if pin != 0:
+        mower = Mower(channel_id, address, pin)
+    else:
+        mower = Mower(channel_id, address)
+        pin = None
     await close_stale_connections_by_address(address)
 
     LOGGER.debug("connecting to %s with channel ID %s", address, str(channel_id), str(pin))
